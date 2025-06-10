@@ -217,26 +217,22 @@
         // Configuration for your flamingo images from R2
         const totalImages = 552; // You have 552 images
         
-        // !!! IMPORTANT: Replace this with the ACTUAL R2 Public URL of your bucket !!!
-        // This URL should point to your bucket and include the common prefix of your filenames.
-        // Example: 'https://pub-YOUR_ACCOUNT_ID.r2.dev/9x16flamingo/9x16Flamingo_'
-        const imageBaseUrl = 'https://pub-ec767d62316a441eb6c2ef8cadabc59c.r2.dev/9x16flamingo/9x16Flamingo_'
+        // !!! IMPORTANT: This is the line that was fixed !!!
+        // It now has the closing single quote and semicolon.
+        const imageBaseUrl = 'https://pub-ec767d62316a441eb6c2ef8cadabc59c.r2.dev/9x16flamingo/9x16Flamingo_';
 
         // Function to generate a random image URL
         function getRandomImageUrl() {
-            // Generates a random number between 1 and totalImages (inclusive)
             const randomIndex = Math.floor(Math.random() * totalImages) + 1;
-            // Pads the number with leading zeros to 3 digits (e.g., 1 becomes "001", 12 becomes "012")
             const paddedIndex = String(randomIndex).padStart(3, '0');
-            // Constructs the full URL using the base URL and the padded index, assuming .jpg format
             return `${imageBaseUrl}${paddedIndex}.jpg`;
         }
 
         // Event listener to set the background image when the page finishes loading
         document.addEventListener('DOMContentLoaded', () => {
-            const randomImageUrl = getRandomImageUrl(); // Get a random image URL
-            document.body.style.backgroundImage = `url('${randomImageUrl}')`; // Set it as the background
-            console.log('Background image loaded:', randomImageUrl); // Log to console for debugging
+            const randomImageUrl = getRandomImageUrl();
+            document.body.style.backgroundImage = `url('${randomImageUrl}')`;
+            console.log('Background image loaded:', randomImageUrl);
         });
     </script>
 
